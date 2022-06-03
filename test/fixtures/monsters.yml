@@ -1,13 +1,11 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+alexander:
+  name: Alexander
+  color: Rainbow
+  height: -6
+  weight: 999
 
-one:
-  name: MyString
-  color: MyString
-  height: 1
-  weight: 1
-
-two:
-  name: MyString
-  color: MyString
-  height: 1
-  weight: 1
+mario:
+  name: Mario
+  color: Darkblue
+  height: 180
+  weight: 900
