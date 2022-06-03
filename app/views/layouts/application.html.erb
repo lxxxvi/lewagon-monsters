@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Monsters</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body class="bg-gradient-to-br from-sky-200 to-red-300 via-fuchsia-200">
+    <main class="container mx-auto my-10 py-10 px-8 flex bg-white min-h-screen opacity-90 rounded-xl shadow-2xl">
+      <%= yield %>
+    </main>
+  </body>
+</html>

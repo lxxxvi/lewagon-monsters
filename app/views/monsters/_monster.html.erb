@@ -1,0 +1,12 @@
+<tr id="<%= dom_id monster %>">
+  <td><%= monster.name %></td>
+  <td><%= monster.color %></td>
+  <td><%= monster.height %></td>
+  <td><%= monster.weight %></td>
+  <td>
+    <% if action_name != "show" %>
+      <%= link_to "Show this monster", monster, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+      <%= link_to 'Edit this monster', edit_monster_path(monster), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <% end %>
+  </td>
+</tr>

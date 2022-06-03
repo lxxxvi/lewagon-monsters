@@ -1,0 +1,37 @@
+<div class="w-full">
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+  <% end %>
+
+  <div class="flex justify-between items-center">
+    <h1 class="font-bold text-4xl">Monsters</h1>
+    <%= link_to 'New monster', new_monster_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+  </div>
+
+  <div class="my-10">
+    <table id="monsters" class="min-w-full">
+      <thead>
+        <tr>
+          <th class="text-left">Name</th>
+          <th class="text-left">Color</th>
+          <th class="text-left">Height</th>
+          <th class="text-left">Weigth</th>
+          <th class="text-left"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @monsters.each do |monster| %>
+          <tr id="<%= dom_id monster %>">
+            <td><%= monster.name %></td>
+            <td><%= monster.color %></td>
+            <td><%= monster.height %></td>
+            <td><%= monster.weight %></td>
+            <td>
+              <%= link_to 'Edit this monster', edit_monster_path(monster), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
