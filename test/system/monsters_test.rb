@@ -9,7 +9,7 @@ class MonstersTest < ApplicationSystemTestCase
     visit monsters_url
 
     click_on "Show this monster", match: :first
-    assert_selector "h1", text: "Scary Monster"
+    assert_selector "h1", text: "Alexander"
 
     click_on "Back"
     assert_selector "h1", text: "Monsters"
