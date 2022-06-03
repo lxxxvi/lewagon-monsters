@@ -30,6 +30,9 @@
             <td><%= monster.weight %></td>
             <td><%= monster.bmi.round(2) %></td>
             <td>
+
+              <%= link_to 'Show this monster', monster_path(monster), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+
               <%= link_to 'Edit this monster', edit_monster_path(monster), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
             </td>
           </tr>

@@ -17,21 +17,22 @@ jobs:
         with:
            bundler-cache: true
 
-  yarn_install:
-    name: Setup node and yarn install
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
+  # yarn_install:
+  #   name: Setup node and yarn install
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v1
 
-      - uses: actions/setup-node@v2
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: 'yarn'
-      - run: yarn install
+  #     - uses: actions/setup-node@v2
+  #       with:
+  #         node-version: ${{ env.NODE_VERSION }}
+  #         cache: 'yarn'
+  #     - run: yarn install
 
   test:
     name: Rails tests
-    needs: [bundle_install, yarn_install]
+    needs: [bundle_install]
+    # needs: [bundle_install, yarn_install]
     runs-on: ubuntu-latest
     services:
       postgres:
@@ -53,10 +54,10 @@ jobs:
         with:
            bundler-cache: true
 
-      - uses: actions/setup-node@v2
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: 'yarn'
+      # - uses: actions/setup-node@v2
+      #   with:
+      #     node-version: ${{ env.NODE_VERSION }}
+      #     cache: 'yarn'
 
       - name: Setup database
         run: |
@@ -66,5 +67,8 @@ jobs:
       - name: Precompile assets
         run: bin/rails assets:precompile
 
-      - name: bin/test
-        run: bin/test
+      - name: bin/rails test
+        run: bin/rails test
+
+      - name: bin/rails test:system
+        run: bin/rails test:system

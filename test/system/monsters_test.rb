@@ -2,7 +2,17 @@ require "application_system_test_case"
 
 class MonstersTest < ApplicationSystemTestCase
   setup do
-    @monster = monsters(:one)
+    @monster = monsters(:alexander)
+  end
+
+  test "show monster works" do
+    visit monsters_url
+
+    click_on "Show this monster", match: :first
+    assert_selector "h1", text: "Scary Monster"
+
+    click_on "Back"
+    assert_selector "h1", text: "Monsters"
   end
 
   test "visiting the index" do
@@ -14,9 +24,9 @@ class MonstersTest < ApplicationSystemTestCase
     visit monsters_url
     click_on "New monster"
 
+    fill_in "Name", with: @monster.name
     fill_in "Color", with: @monster.color
     fill_in "Height", with: @monster.height
-    fill_in "Name", with: @monster.name
     fill_in "Weight", with: @monster.weight
     click_on "Create Monster"
 
